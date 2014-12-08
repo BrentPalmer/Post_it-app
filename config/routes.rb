@@ -1,4 +1,4 @@
 PostitTemplate::Application.routes.draw do
   root to: 'posts#index'
-  resources :posts
+  resources :posts, except: [:destroy]
 end
