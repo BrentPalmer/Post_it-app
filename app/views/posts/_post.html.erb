@@ -1,16 +1,33 @@
-    <div classs='row'>
-      <div class='span8 well'>
-      <%= render post.categories %>
-        <h4><%= link_to post.title, fix_url(post.url) %></h4>
-        <p><%= post.description %></p>
-        <p>
-          <span class='quiet'>posted by</span> <%= link_to post.creator.username, user_path(post.creator) unless post.creator.blank? %>
-          <small>at <%= display_datetime(post.created_at) %></small>
-        </p>
-        <small>
-          <span>
-            <%= link_to("#{post.comments.size} comments", post_path(post)) %>
-          </span>
-        </small>
-      </div>
+<div classs='row'>
+  <% if logged_in? %>
+    <div class='span1 well text-center'>
+      <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+        <i class='icon-arrow-up'></i>
+      <% end %>
+      </br>
+      <%= post.total_votes %> votes
+      </br>
+      <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+        <i class='icon-arrow-down'></i>
+      <% end %>
     </div>
+  <% else %>
+    <div class='span1 well text-center'>
+     <%= post.total_votes %> votes
+    </div>
+  <% end %>
+  <div class='span9 well'>
+  <%= render post.categories %>
+    <h4><%= link_to post.title, fix_url(post.url) %></h4>
+    <p><%= post.description %></p>
+    <p>
+      <span class='quiet'>posted by</span> <%= link_to post.creator.username, user_path(post.creator) unless post.creator.blank? %>
+      <small>at <%= display_datetime(post.created_at) %></small>
+    </p>
+    <small>
+      <span>
+        <%= link_to("#{post.comments.size} comments", post_path(post)) %>
+      </span>
+    </small>
+  </div>
+</div>
