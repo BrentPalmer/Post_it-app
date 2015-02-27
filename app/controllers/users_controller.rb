@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :require_same_user, only: [:edit, :update]
 
+
   def show
   end
 
