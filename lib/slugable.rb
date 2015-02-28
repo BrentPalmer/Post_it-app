@@ -1,4 +1,5 @@
-module Sluggable
+=begin
+module Slugable
   extend ActiveSupport::Concern
 
   included do
@@ -38,9 +39,10 @@ module Sluggable
   end
 
   module ClassMethods
-    def sluggable_column(col_name)
+    def slugable_column(col_name)
       self.slug_column = col_name
     end
   end
 
 end
+=end
