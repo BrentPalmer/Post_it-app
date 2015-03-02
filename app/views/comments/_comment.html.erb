@@ -1,5 +1,5 @@
 <% show_post ||= false %>
-<div class='row'>
+<div class='row' id='color_box'>
   <% if logged_in? %>
     <div class='span0 well text-center'>
       <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post', remote: true do %>

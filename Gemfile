@@ -16,7 +16,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'voteable_brent'
 gem 'slugable_brent'
-gem 'twilio-ruby'
 
 group :doc do
   gem 'sdoc', require: false
